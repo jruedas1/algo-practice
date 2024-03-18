@@ -12,6 +12,7 @@ function buildCharMap(string) {
       return string.replace(/\W/g, "").toLowerCase().split('')
           .reduce((obj, char) => {
               !obj[char] ? obj[char] = 1 : obj[char]++;
+              // obj[char] = ++obj[char] || 1
               return obj;
           }, {});
   }
