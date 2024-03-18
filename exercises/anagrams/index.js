@@ -17,29 +17,37 @@ function buildCharMap(string) {
           }, {});
   }
 
-  function anagrams(stringA, stringB) {
-      const stringAMap = buildCharMap(stringA);
-      const stringBMap = buildCharMap(stringB);
+//   function anagrams(stringA, stringB) {
+//       const stringAMap = buildCharMap(stringA);
+//       const stringBMap = buildCharMap(stringB);
 
-          console.log(stringAMap);
-          console.log(stringBMap);
+//           console.log(stringAMap);
+//           console.log(stringBMap);
 
-      const keysA = Object.keys(stringAMap);
-      const keysB = Object.keys(stringBMap);
+//       const keysA = Object.keys(stringAMap);
+//       const keysB = Object.keys(stringBMap);
 
-          console.log(keysA);
-          console.log(keysB);
+//           console.log(keysA);
+//           console.log(keysB);
 
-      if (keysA.length !== keysB.length) {
-          return false;
-      }
+//       if (keysA.length !== keysB.length) {
+//           return false;
+//       }
 
-      for (let key of keysA){
-          if (stringAMap[key] !== stringBMap[key]){
-              return false;
-          }
-      }
-      return true;
+//       for (let key of keysA){
+//           if (stringAMap[key] !== stringBMap[key]){
+//               return false;
+//           }
+//       }
+//       return true;
+//   }
+
+  function cleanString(str){
+    return str.replace(/\W/g, "").toLowerCase();
+  }
+
+  function anagrams(stringA, stringB){
+    return cleanString(stringA).split('').sort().join('') === cleanString(stringB).split('').sort().join('');
   }
 
 module.exports = anagrams;
