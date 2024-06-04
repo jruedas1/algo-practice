@@ -37,6 +37,23 @@ function steps(n){
     }
 }
 
-steps(3)
+// steps(3)
+
+function printNumbersRecursive(n){
+    if (n < 0) return undefined;
+    console.log(n);
+    printNumbersRecursive(n-1);
+}
+
+// printNumbersRecursive(10);
+
+function stepsRecursive(n, hashtags = 1){
+    if (n === 0) return undefined;
+    console.log("#".repeat(hashtags) + ' '.repeat(n))
+    stepsRecursive(n-1, hashtags+1);
+}
+
+stepsRecursive(5)
+
 
 module.exports = steps;
