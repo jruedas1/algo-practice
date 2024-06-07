@@ -49,11 +49,25 @@ function printNumbersRecursive(n){
 
 function stepsRecursive(n, hashtags = 1){
     if (n === 0) return undefined;
-    console.log("#".repeat(hashtags) + ' '.repeat(n))
+    console.log("#".repeat(hashtags) + ' '.repeat(n - 1))
     stepsRecursive(n-1, hashtags+1);
 }
 
 stepsRecursive(5)
 
+
+function stepsRecursiveInstructorSolution(n, row = 0, stair = ''){
+    if (row === n) return undefined;
+    if (n === stair.length){
+        console.log(stair);
+        return stepsRecursiveInstructorSolution(n, row+1);
+    }
+    if (stair.length <= row){
+        stair += '#';
+    } else {
+        stair += ' ';
+    }
+    stepsRecursiveInstructorSolution(n, row, stair);
+}
 
 module.exports = steps;
